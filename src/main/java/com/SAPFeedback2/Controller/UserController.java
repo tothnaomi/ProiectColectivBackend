@@ -1,12 +1,11 @@
 package com.SAPFeedback2.Controller;
 
-//import com.SAPFeedback2.Model.User;
-//import com.SAPFeedback2.Service.UserService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.*;
-//
-//import java.util.List;
-//import java.util.UUID;
+import com.SAPFeedback2.Model.Employee;
+import com.SAPFeedback2.Service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * HERE WE WILL CALL ONLY THE HTTPCLIENT IN EVERY FUNCTION !!
@@ -16,41 +15,41 @@ package com.SAPFeedback2.Controller;
  * DELETE: delete
  * here will we have the actual links: localhost.getAllUsers... HTTPClient
  */
-//@RestController
-//public class UserController {
-//    private final UserService userService;
-//
-//    // dependency injection
-//    @Autowired
-//    public UserController(UserService userService) {
-//        this.userService = userService;
-//    }
-//
-//    // --------------------------------- HTTP CLIENT ---------------------------------
-//
-//    @GetMapping("api/person/getAll")
-//    public List<User> getAll() {
-//        return userService.getAll();
-//    }
-//
-//    @PostMapping("api/person/addPerson")
-//    public void addUser(@RequestBody User user) {
-//        System.out.println(user.getName());
-//        userService.addUser(user);
-//    }
-//
-//    @GetMapping("api/person/getPersonById/{id}")
-//    public User getUserById(@PathVariable("id") UUID id) {
-//        return userService.getUserById(id).orElse(null);
-//    }
-//
-//    @DeleteMapping("api/person/deletePersonById/{id}")
-//    public int deleteUserById(@PathVariable("id") UUID id) {
-//        return userService.deleteUser(id);
-//    }
-//
-//    @PutMapping("api/person/updatePerson/{id}")
-//    public int updatePerson(@PathVariable("id") UUID id, @RequestBody User newUser) {
-//        return userService.updateUser(id, newUser);
-//    }
-//}
+@RestController
+public class UserController {
+    private final EmployeeService employeeService;
+
+    // dependency injection
+    @Autowired
+    public UserController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
+    // --------------------------------- HTTP CLIENT ---------------------------------
+
+    @GetMapping("api/employee/getAll")
+    public List<Employee> getAll() {
+        return employeeService.getAll();
+    }
+
+    @PostMapping("api/employee/addEmployee")
+    public void addEmplyee(@RequestBody Employee employee) {
+        System.out.println(employee.getFirstName());
+        employeeService.addEmployee(employee);
+    }
+
+    @GetMapping("api/employee/getEmployeeByPersonalNumber/{personalNumber}")
+    public Employee getEmployeeByPersonalNumber(@PathVariable("personalNumber") Long personalNumber) {
+        return employeeService.getEmployeeByPersonalNumber(personalNumber).orElse(null);
+    }
+
+    @DeleteMapping("api/employee/deleteEmployeeByPersonalNumber/{personalNumber}")
+    public int deleteUserById(@PathVariable("personalNumber") Long personalNumber) {
+        return employeeService.deleteEmployee(personalNumber);
+    }
+
+    @PutMapping("api/employee/updateEmployee/{personalNumber}")
+    public int updateEmployee(@PathVariable("personalNumber") Long personalNumber, @RequestBody Employee employee) {
+        return employeeService.updateEmployee(personalNumber, employee);
+    }
+}
