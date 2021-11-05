@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * in our project it does not have sense to have a service and a repository, but in complexer projects here would we have the logic of the applciation
+ * in our project it does not have sense to have a service and a repository,
+ * but in complexer projects here would we have the logic of the application
+ * TODO - Validations
  */
 @Service
 public class EmployeeService {
