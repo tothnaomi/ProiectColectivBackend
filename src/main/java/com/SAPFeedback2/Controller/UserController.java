@@ -1,5 +1,4 @@
 package com.SAPFeedback2.Controller;
-
 import com.SAPFeedback2.Model.Employee;
 import com.SAPFeedback2.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,12 +43,12 @@ public class UserController {
     }
 
     @DeleteMapping("api/employee/deleteEmployeeByPersonalNumber/{personalNumber}")
-    public int deleteUserById(@PathVariable("personalNumber") Long personalNumber) {
+    public boolean deleteUserById(@PathVariable("personalNumber") Long personalNumber) {
         return employeeService.deleteEmployee(personalNumber);
     }
 
-    @PutMapping("api/employee/updateEmployee/{personalNumber}")
-    public int updateEmployee(@PathVariable("personalNumber") Long personalNumber, @RequestBody Employee employee) {
-        return employeeService.updateEmployee(personalNumber, employee);
-    }
+//    @PutMapping("api/employee/updateEmployee/{personalNumber}")
+//    public int updateEmployee(@PathVariable("personalNumber") Long personalNumber, @RequestBody Employee employee) {
+//        return employeeService.updateEmployee(personalNumber, employee);
+//    }
 }

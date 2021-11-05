@@ -1,9 +1,8 @@
 package com.SAPFeedback2.Service;
 
-import com.SAPFeedback2.Dao.EmployeeDao;
 import com.SAPFeedback2.Model.Employee;
+import com.SAPFeedback2.Repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,31 +14,31 @@ import java.util.Optional;
 @Service
 public class EmployeeService {
 
-    private final EmployeeDao employeeDao;
+    private final EmployeeRepository employeeRepository;
 
     // we use annotations to instantiate beans
     @Autowired
-    public EmployeeService(@Qualifier("postgres") EmployeeDao employeeDao) {
-        this.employeeDao = employeeDao;
+    public EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
-    public int addEmployee(Employee employee) {
-        return employeeDao.insertEmployee(employee);
+    public Employee addEmployee(Employee employee) {
+        return employeeRepository.save(employee);
     }
 
     public List<Employee> getAll() {
-        return employeeDao.selectAll();
+        return employeeRepository.findAll();
     }
 
     public Optional<Employee> getEmployeeByPersonalNumber(Long personalNumber) {
-        return employeeDao.selectEmployeeByPersonalNumber(personalNumber);
+        return employeeRepository.findByPersonalNumber(personalNumber);
     }
 
-    public int deleteEmployee(Long personalNumber) {
-        return employeeDao.deleteEmployeeByPersonalNumber(personalNumber);
+    public boolean deleteEmployee(Long personalNumber) {
+        return employeeRepository.deleteEmployeeByPersonalNumber(personalNumber);
     }
 
-    public int updateEmployee(Long personalNumber, Employee employee) {
-        return employeeDao.updateEmployeeByPersonalNumber(personalNumber, employee);
-    }
+//    public int updateEmployee(Long personalNumber, Employee employee) {
+//        return employeeDao.updateEmployeeByPersonalNumber(personalNumber, employee);
+//    }
 }
