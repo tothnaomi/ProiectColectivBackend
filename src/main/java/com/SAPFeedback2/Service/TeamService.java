@@ -1,6 +1,6 @@
 package com.SAPFeedback2.Service;
 
-import com.SAPFeedback2.Model.Employee;
+
 import com.SAPFeedback2.Model.Team;
 import com.SAPFeedback2.Repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +14,12 @@ public class TeamService {
 
     private final TeamRepository teamRepository;
 
+    private final EmployeeService employeeService;
+
     @Autowired
-    public TeamService(TeamRepository teamRepository) {
+    public TeamService(TeamRepository teamRepository, EmployeeService employeeService) {
         this.teamRepository = teamRepository;
+        this.employeeService = employeeService;
     }
 
     public List<Team> getAll() {
@@ -27,7 +30,7 @@ public class TeamService {
         return teamRepository.findById(id);
     }
 
-    public Optional<Team> getTeamByManager(Employee manager) {
-        return teamRepository.findByManager(manager);
+    public Optional<Team> getTeamByManagerId(Long id) {
+        return teamRepository.getTeamByManager(employeeService.getEmployeeByPersonalNumber(id));
     }
 }
