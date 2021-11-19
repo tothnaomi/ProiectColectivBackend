@@ -66,4 +66,108 @@ public class PEG {
 
     public PEG() {
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Integer getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(Integer firstName) {
+        this.firstName = firstName;
+    }
+
+    public Employee getManager() {
+        return manager;
+    }
+
+    public void setManager(Employee manager) {
+        this.manager = manager;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public String getStrategy_focus() {
+        return strategy_focus;
+    }
+
+    public void setStrategy_focus(String strategy_focus) {
+        this.strategy_focus = strategy_focus;
+    }
+
+    public String getCustomer_focus() {
+        return customer_focus;
+    }
+
+    public void setCustomer_focus(String customer_focus) {
+        this.customer_focus = customer_focus;
+    }
+
+    public String getEmployee_focus() {
+        return employee_focus;
+    }
+
+    public void setEmployee_focus(String employee_focus) {
+        this.employee_focus = employee_focus;
+    }
+
+    public String getExcellence_focus() {
+        return excellence_focus;
+    }
+
+    public void setExcellence_focus(String excellence_focus) {
+        this.excellence_focus = excellence_focus;
+    }
+
+    public String getProfessional_industry_experience() {
+        return professional_industry_experience;
+    }
+
+    public void setProfessional_industry_experience(String professional_industry_experience) {
+        this.professional_industry_experience = professional_industry_experience;
+    }
+
+    public String getProject_and_program_management() {
+        return project_and_program_management;
+    }
+
+    public void setProject_and_program_management(String project_and_program_management) {
+        this.project_and_program_management = project_and_program_management;
+    }
+
+    public String getAverage() {
+        return average;
+    }
+
+    public void setAverage(String average) {
+        this.average = average;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
 }
