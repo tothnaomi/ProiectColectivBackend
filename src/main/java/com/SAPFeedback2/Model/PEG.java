@@ -16,59 +16,158 @@ public class PEG {
     private Integer firstName;
 
     @ManyToOne
-//    @Column(name = "fk_manager")
+    @JoinColumn(name = "manager_id", referencedColumnName = "personalNumber")
     private Employee manager;
 
     @ManyToOne
-//    @Column(name = "fk_employee")
+    @JoinColumn(name = "employee_id", referencedColumnName = "personalNumber")
     private Employee employee;
 
-    @Column(name = "crit1")
-    private String crit1;
+    @Column(name = "strategy_focus")
+    private String strategy_focus;
 
-    @Column(name = "crit2")
-    private String crit2;
+    @Column(name = "customer_focus")
+    private String customer_focus;
 
-    @Column(name = "crit3")
-    private String crit3;
+    @Column(name = "employee_focus")
+    private String employee_focus;
 
-    @Column(name = "crit4")
-    private String crit4;
+    @Column(name = "excellence_focus")
+    private String excellence_focus;
 
-    @Column(name = "crit5")
-    private String crit5;
+    @Column(name = "professional_industry_experience")
+    private String professional_industry_experience;
 
-    @Column(name = "crit6")
-    private String crit6;
-
-    @Column(name = "crit7")
-    private String crit7;
+    @Column(name = "project_and_program_management")
+    private String project_and_program_management;
 
     @Column(name = "average")
     private String average;
 
     @ManyToOne
-//    @Column(name = "fk_project")
+    @JoinColumn(name = "project_id", referencedColumnName = "id")
     private Project project;
 
-
-    public PEG(Long id, String text, Integer firstName, Employee manager, Employee employee, String crit1, String crit2, String crit3, String crit4, String crit5, String crit6, String crit7, String average, Project project) {
+    public PEG(Long id, String text, Integer firstName, Employee manager, Employee employee, String strategy_focus, String customer_focus, String employee_focus, String excellence_focus, String professional_industry_experience, String project_and_program_management, String average, Project project) {
         this.id = id;
         this.text = text;
         this.firstName = firstName;
         this.manager = manager;
         this.employee = employee;
-        this.crit1 = crit1;
-        this.crit2 = crit2;
-        this.crit3 = crit3;
-        this.crit4 = crit4;
-        this.crit5 = crit5;
-        this.crit6 = crit6;
-        this.crit7 = crit7;
+        this.strategy_focus = strategy_focus;
+        this.customer_focus = customer_focus;
+        this.employee_focus = employee_focus;
+        this.excellence_focus = excellence_focus;
+        this.professional_industry_experience = professional_industry_experience;
+        this.project_and_program_management = project_and_program_management;
         this.average = average;
         this.project = project;
     }
 
     public PEG() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Integer getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(Integer firstName) {
+        this.firstName = firstName;
+    }
+
+    public Employee getManager() {
+        return manager;
+    }
+
+    public void setManager(Employee manager) {
+        this.manager = manager;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public String getStrategy_focus() {
+        return strategy_focus;
+    }
+
+    public void setStrategy_focus(String strategy_focus) {
+        this.strategy_focus = strategy_focus;
+    }
+
+    public String getCustomer_focus() {
+        return customer_focus;
+    }
+
+    public void setCustomer_focus(String customer_focus) {
+        this.customer_focus = customer_focus;
+    }
+
+    public String getEmployee_focus() {
+        return employee_focus;
+    }
+
+    public void setEmployee_focus(String employee_focus) {
+        this.employee_focus = employee_focus;
+    }
+
+    public String getExcellence_focus() {
+        return excellence_focus;
+    }
+
+    public void setExcellence_focus(String excellence_focus) {
+        this.excellence_focus = excellence_focus;
+    }
+
+    public String getProfessional_industry_experience() {
+        return professional_industry_experience;
+    }
+
+    public void setProfessional_industry_experience(String professional_industry_experience) {
+        this.professional_industry_experience = professional_industry_experience;
+    }
+
+    public String getProject_and_program_management() {
+        return project_and_program_management;
+    }
+
+    public void setProject_and_program_management(String project_and_program_management) {
+        this.project_and_program_management = project_and_program_management;
+    }
+
+    public String getAverage() {
+        return average;
+    }
+
+    public void setAverage(String average) {
+        this.average = average;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }

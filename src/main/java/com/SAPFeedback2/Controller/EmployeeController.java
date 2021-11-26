@@ -15,12 +15,12 @@ import java.util.List;
  * here will we have the actual links: localhost.getAllUsers... HTTPClient
  */
 @RestController
-public class UserController {
+public class EmployeeController {
     private final EmployeeService employeeService;
 
     // dependency injection
     @Autowired
-    public UserController(EmployeeService employeeService) {
+    public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping("api/employee/addEmployee")
-    public void addEmplyee(@RequestBody Employee employee) {
+    public void addEmployee(@RequestBody Employee employee) {
         System.out.println(employee.getFirstName());
         employeeService.addEmployee(employee);
     }

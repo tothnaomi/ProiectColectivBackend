@@ -22,8 +22,8 @@ public class Employee {
     @Column(name = "email")
     private String email;
 
-//    @Column(name = "careerLevel")
-//    private String careerlevel;
+    @Column(name = "careerLevel")
+    private String careerlevel;
 
     @Column(name = "username")
     private String username;
@@ -39,11 +39,19 @@ public class Employee {
     @Column(name = "status")
     private Integer status;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "employee_team",
+            joinColumns = {@JoinColumn(name = "personal_number")},
+            inverseJoinColumns = {@JoinColumn(name = "team_id")}
+    )
+    private List<Team> teams = new ArrayList<>();
+
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "employee_project",
-            joinColumns = { @JoinColumn(name = "personal_number") },
-            inverseJoinColumns = { @JoinColumn(name = "project_id") }
+            joinColumns = {@JoinColumn(name = "personal_number")},
+            inverseJoinColumns = {@JoinColumn(name = "project_id")}
     )
     private List<Project> projects = new ArrayList<>();
 
