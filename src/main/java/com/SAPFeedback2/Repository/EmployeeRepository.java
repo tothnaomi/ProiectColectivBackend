@@ -73,7 +73,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     List<Employee> findAll();
 
     boolean deleteEmployeeByPersonalNumber(Long personalNumber);
-
+    
     Optional<Employee> findByPersonalNumber(Long personalNumber);
 }
 
