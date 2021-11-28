@@ -1,5 +1,7 @@
 package com.SAPFeedback2.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,15 +14,23 @@ public class PEG {
     @Column(name = "text")
     private String text;
 
+    /**
+     * status can be open or sent or pending
+     * 0 - open
+     * 1 - sent
+     * 2 - pending
+     */
     @Column(name = "status")
-    private Integer firstName;
+    private Integer status;
 
     @ManyToOne
     @JoinColumn(name = "manager_id", referencedColumnName = "personalNumber")
+    @JsonIgnore
     private Employee manager;
 
     @ManyToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "personalNumber")
+    @JsonIgnore
     private Employee employee;
 
     @Column(name = "strategy_focus")
@@ -51,7 +61,7 @@ public class PEG {
     public PEG(Long id, String text, Integer firstName, Employee manager, Employee employee, String strategy_focus, String customer_focus, String employee_focus, String excellence_focus, String professional_industry_experience, String project_and_program_management, String average, Project project) {
         this.id = id;
         this.text = text;
-        this.firstName = firstName;
+        this.status = firstName;
         this.manager = manager;
         this.employee = employee;
         this.strategy_focus = strategy_focus;
@@ -83,12 +93,12 @@ public class PEG {
         this.text = text;
     }
 
-    public Integer getFirstName() {
-        return firstName;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setFirstName(Integer firstName) {
-        this.firstName = firstName;
+    public void setStatus(Integer firstName) {
+        this.status = firstName;
     }
 
     public Employee getManager() {

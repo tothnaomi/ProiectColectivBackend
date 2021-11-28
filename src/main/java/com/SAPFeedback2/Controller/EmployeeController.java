@@ -31,6 +31,11 @@ public class EmployeeController {
         return employeeService.getAll();
     }
 
+    @GetMapping("api/employee/getManagers")
+    public List<Employee> getManagers() {
+        return employeeService.getManagers();
+    }
+
     @PostMapping("api/employee/addEmployee")
     public void addEmployee(@RequestBody Employee employee) {
         System.out.println(employee.getFirstName());

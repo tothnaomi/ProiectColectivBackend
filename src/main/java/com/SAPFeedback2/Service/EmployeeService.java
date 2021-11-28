@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 
 /**
  * in our project it does not have sense to have a service and a repository,
@@ -38,6 +40,13 @@ public class EmployeeService {
 
     public boolean deleteEmployee(Long personalNumber) {
         return employeeRepository.deleteEmployeeByPersonalNumber(personalNumber);
+    }
+
+    public List<Employee> getManagers() {
+        return employeeRepository.findAll()
+                .stream()
+                .filter(employee -> employee.getStatus()==1)
+                .collect(Collectors.toList());
     }
 
 //    public int updateEmployee(Long personalNumber, Employee employee) {

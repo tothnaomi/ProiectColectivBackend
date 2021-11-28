@@ -31,6 +31,9 @@ public class Employee {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "logged_in")
+    private int loggedIn;
+
     /**
      * status 0 - user
      * status 1 - manager
@@ -67,10 +70,36 @@ public class Employee {
         this.username = username;
         this.password = password;
         this.status = status;
+        this.loggedIn = 0;
     }
+
+    public Employee(String firstname, String lastname, String email, Integer status, String careerlevel, Long personalNumber) {
+        this.personalNumber = personalNumber;
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.email = email;
+        this.status = status;
+        this.loggedIn = 0;
+    }
+
 
     // standard getters and setters
 
+    public String getCareerlevel() {
+        return careerlevel;
+    }
+
+    public void setCareerlevel(String careerlevel) {
+        this.careerlevel = careerlevel;
+    }
+
+    public int getLoggedIn() {
+        return loggedIn;
+    }
+
+    public void setLoggedIn(int loggedIn) {
+        this.loggedIn = loggedIn;
+    }
 
     public Long getPersonalNumber() {
         return personalNumber;
