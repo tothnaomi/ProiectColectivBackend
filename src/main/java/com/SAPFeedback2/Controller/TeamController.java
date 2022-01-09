@@ -32,7 +32,7 @@ public class TeamController {
     }
 
     @GetMapping("api/team/getByManager/{id}")
-    public Team getTeamByManager(@PathVariable("manager") Long id) {
+    public Team getTeamByManager(@PathVariable("id") Long id) {
         return teamService.getTeamByManagerId(id).orElse(null);
     }
 }

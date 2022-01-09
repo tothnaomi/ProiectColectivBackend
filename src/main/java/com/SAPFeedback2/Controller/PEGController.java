@@ -20,7 +20,7 @@ public class PEGController {
         this.pegService = pegService;
     }
 
-    @GetMapping("api/peg/getAllFromEmployeeWithId")
+    @GetMapping("api/peg/getAll")
     public List<PEG> getAll() {
         return pegService.getAll();
     }

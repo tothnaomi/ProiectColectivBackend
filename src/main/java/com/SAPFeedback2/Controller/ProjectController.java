@@ -24,8 +24,8 @@ public class ProjectController {
         return projectService.getAll();
     }
 
-    @GetMapping("api/employee/getProjectById/{id}")
-    public Project getEmployeeByPersonalNumber(@PathVariable("id") Long id) {
+    @GetMapping("api/project/getProjectById/{id}")
+    public Project getProjectById(@PathVariable("id") Long id) {
         return projectService.findById(id).orElse(null);
     }
 }

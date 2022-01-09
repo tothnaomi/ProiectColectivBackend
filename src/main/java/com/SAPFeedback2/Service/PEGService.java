@@ -35,4 +35,7 @@ public class PEGService {
                 .stream()
                 .filter(peg -> peg.getStatus().equals(status))
                 .collect(Collectors.toList());}
+
+    public void save(PEG peg) { pegRepsoitory.save(peg);
+    }
 }

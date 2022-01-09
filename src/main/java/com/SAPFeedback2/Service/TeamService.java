@@ -33,4 +33,6 @@ public class TeamService {
     public Optional<Team> getTeamByManagerId(Long id) {
         return teamRepository.getTeamByManager(employeeService.getEmployeeByPersonalNumber(id));
     }
+
+    public void save(Team team){ teamRepository.save(team);}
 }

@@ -58,8 +58,7 @@ public class PEG {
     @JoinColumn(name = "project_id", referencedColumnName = "id")
     private Project project;
 
-    public PEG(Long id, String text, Integer firstName, Employee manager, Employee employee, String strategy_focus, String customer_focus, String employee_focus, String excellence_focus, String professional_industry_experience, String project_and_program_management, String average, Project project) {
-        this.id = id;
+    public PEG( String text, Integer firstName, Employee manager, Employee employee, String strategy_focus, String customer_focus, String employee_focus, String excellence_focus, String professional_industry_experience, String project_and_program_management, String average, Project project) {
         this.text = text;
         this.status = firstName;
         this.manager = manager;
@@ -97,8 +96,8 @@ public class PEG {
         return status;
     }
 
-    public void setStatus(Integer firstName) {
-        this.status = firstName;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Employee getManager() {

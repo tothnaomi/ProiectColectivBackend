@@ -48,8 +48,8 @@ public class EmployeeController {
     }
 
     @DeleteMapping("api/employee/deleteEmployeeByPersonalNumber/{personalNumber}")
-    public boolean deleteUserById(@PathVariable("personalNumber") Long personalNumber) {
-        return employeeService.deleteEmployee(personalNumber);
+    public void deleteUserById(@PathVariable("personalNumber") Long personalNumber) {
+         employeeService.deleteEmployee(personalNumber);
     }
 
 //    @PutMapping("api/employee/updateEmployee/{personalNumber}")

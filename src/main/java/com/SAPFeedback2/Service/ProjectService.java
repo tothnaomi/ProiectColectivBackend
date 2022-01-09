@@ -21,5 +21,6 @@ public class ProjectService {
     public Optional<Project> findById(Long id){return projectRepository.findById(id);}
 
 
-
+    public void save(Project project) { projectRepository.save(project);
+    }
 }

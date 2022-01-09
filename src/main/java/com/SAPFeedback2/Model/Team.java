@@ -9,7 +9,6 @@ import java.util.List;
 public class Team {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
@@ -26,7 +25,7 @@ public class Team {
     }
 
     public Team(Long id, String name, Employee manager) {
-        this.id = id;
+        this.id=id;
         this.name = name;
         this.manager = manager;
     }

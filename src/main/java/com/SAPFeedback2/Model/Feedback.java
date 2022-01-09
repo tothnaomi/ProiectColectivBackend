@@ -1,13 +1,13 @@
 package com.SAPFeedback2.Model;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 @Table(name = "feedbacks")
 public class Feedback {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "text")
@@ -138,4 +138,5 @@ public class Feedback {
     public void setEmployee2(Employee employee2) {
         this.employee2 = employee2;
     }
+
 }

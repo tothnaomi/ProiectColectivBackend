@@ -38,8 +38,8 @@ public class EmployeeService {
         return employeeRepository.findByPersonalNumber(personalNumber);
     }
 
-    public boolean deleteEmployee(Long personalNumber) {
-        return employeeRepository.deleteEmployeeByPersonalNumber(personalNumber);
+    public void deleteEmployee(Long personalNumber) {
+        employeeRepository.deleteEmployeeByPersonalNumber(personalNumber);
     }
 
     public List<Employee> getManagers() {
