@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class FeedbackController {
 
     private final FeedbackService feedbackService;
@@ -35,6 +36,7 @@ public class FeedbackController {
 
     @PostMapping("api/feedback/addFeedback")
     public void addFeedback(@RequestBody Feedback feedback) {
+        System.out.println(feedback);
         feedbackService.addFeedback(feedback);
     }
 }

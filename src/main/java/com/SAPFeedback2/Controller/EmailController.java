@@ -1,5 +1,6 @@
 package com.SAPFeedback2.Controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 import java.util.Properties;
 
 @RestController
+@CrossOrigin("*")
 public class EmailController {
     @RequestMapping(value = "/sendemail")
     public String sendEmail() {

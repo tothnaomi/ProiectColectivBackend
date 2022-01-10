@@ -15,6 +15,7 @@ import java.util.List;
  * here will we have the actual links: localhost.getAllUsers... HTTPClient
  */
 @RestController
+@CrossOrigin("*")
 public class EmployeeController {
     private final EmployeeService employeeService;
 
