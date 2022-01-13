@@ -1,7 +1,6 @@
 package com.SAPFeedback2.Controller;
 
 import com.SAPFeedback2.Model.Employee;
-import com.SAPFeedback2.Model.Feedback;
 import com.SAPFeedback2.Model.PEG;
 import com.SAPFeedback2.SapFeedback2Application;
 import com.SAPFeedback2.Service.EmployeeService;
@@ -18,9 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -47,7 +43,7 @@ class PEGControllerTest {
         PEG peg = new PEG();
         peg.setManager(employeeService.getAll().get(0));
         peg.setStatus(2);
-        pegService.save(peg);
+        pegService.addPeg(peg);
     }
 
     @Test

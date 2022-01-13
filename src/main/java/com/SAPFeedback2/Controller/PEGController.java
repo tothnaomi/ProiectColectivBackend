@@ -33,4 +33,10 @@ public class PEGController {
     public List<PEG> getAllWithStatus(@RequestParam("status") Integer status) {
         return pegService.getAllWithStatus(status);
     }
+
+    @PostMapping("api/peg/addPeg")
+    public void addPeg(@RequestBody PEG peg) {
+        System.out.println(peg);
+        pegService.addPeg(peg);
+    }
 }

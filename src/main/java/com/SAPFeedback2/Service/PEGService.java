@@ -22,7 +22,6 @@ public class PEGService {
     }
 
 
-
     public List<PEG> getAllFromEmployeeWithPersonalNumber(Long personalNumber) {
         return pegRepsoitory.findAll()
                 .stream()
@@ -30,12 +29,15 @@ public class PEGService {
                 .collect(Collectors.toList());
     }
 
-    public List<PEG> getAllWithStatus(Integer status){
+    public List<PEG> getAllWithStatus(Integer status) {
         return pegRepsoitory.findAll()
                 .stream()
                 .filter(peg -> peg.getStatus().equals(status))
-                .collect(Collectors.toList());}
-
-    public void save(PEG peg) { pegRepsoitory.save(peg);
+                .collect(Collectors.toList());
     }
+
+    public void addPeg(PEG peg) {
+        pegRepsoitory.save(peg);
+    }
+
 }
