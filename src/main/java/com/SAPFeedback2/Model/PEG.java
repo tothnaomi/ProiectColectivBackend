@@ -25,12 +25,10 @@ public class PEG {
 
     @ManyToOne
     @JoinColumn(name = "manager_id", referencedColumnName = "personalNumber")
-    @JsonIgnore
     private Employee manager;
 
     @ManyToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "personalNumber")
-    @JsonIgnore
     private Employee employee;
 
     @Column(name = "strategy_focus")
@@ -58,11 +56,9 @@ public class PEG {
     @JoinColumn(name = "project_id", referencedColumnName = "id")
     private Project project;
 
-    public PEG( String text, Integer firstName, Employee manager, Employee employee, String strategy_focus, String customer_focus, String employee_focus, String excellence_focus, String professional_industry_experience, String project_and_program_management, String average, Project project) {
+    public PEG( String text, Integer firstName, String strategy_focus, String customer_focus, String employee_focus, String excellence_focus, String professional_industry_experience, String project_and_program_management, String average, Project project) {
         this.text = text;
         this.status = firstName;
-        this.manager = manager;
-        this.employee = employee;
         this.strategy_focus = strategy_focus;
         this.customer_focus = customer_focus;
         this.employee_focus = employee_focus;
@@ -178,5 +174,24 @@ public class PEG {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    @Override
+    public String toString() {
+        return "PEG{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", status=" + status +
+                ", manager=" + manager +
+                ", employee=" + employee +
+                ", strategy_focus='" + strategy_focus + '\'' +
+                ", customer_focus='" + customer_focus + '\'' +
+                ", employee_focus='" + employee_focus + '\'' +
+                ", excellence_focus='" + excellence_focus + '\'' +
+                ", professional_industry_experience='" + professional_industry_experience + '\'' +
+                ", project_and_program_management='" + project_and_program_management + '\'' +
+                ", average='" + average + '\'' +
+                ", project=" + project +
+                '}';
     }
 }

@@ -38,6 +38,7 @@ public class PEGService {
 
     public void addPeg(PEG peg) {
         peg.setStatus(1);
+        System.out.println(peg);
         pegRepsoitory.save(peg);
     }
 
