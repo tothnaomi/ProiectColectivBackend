@@ -53,7 +53,7 @@ public class FeedbackControllerTest {
     public void setUp(){
         Employee employee= new Employee(6000611084524L,"Ana", "Pop", "taflan.cristina@yahoo.com"," ", "",1);
         Employee employee2= new Employee(6000611084534L,"Ana", "Pop", "taflan.cristina@yahoo.com"," ", "",1);
-        Feedback feedback= new Feedback(1, "text", true,"a", "b"," ", " " );
+        Feedback feedback= new Feedback( "text", true,"a", "b"," ", " " );
         employeeService.addEmployee(employee);
         employeeService.addEmployee(employee2);
         Optional<Employee> employee1=employeeService.getEmployeeByPersonalNumber(employee.getPersonalNumber());
@@ -99,7 +99,7 @@ public class FeedbackControllerTest {
 
     @Test
     void addFeedback() throws Exception {
-        Feedback feedback= new Feedback(18L, "text", true,"a", "b"," ", " " );
+        Feedback feedback= new Feedback( "text", true,"a", "b"," ", " " );
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
         String json = ow.writeValueAsString(feedback);
 

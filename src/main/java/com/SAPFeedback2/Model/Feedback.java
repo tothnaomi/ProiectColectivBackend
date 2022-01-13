@@ -8,6 +8,7 @@ import java.util.Optional;
 public class Feedback {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
     private long id;
 
     @Column(name = "text")
@@ -57,8 +58,7 @@ public class Feedback {
                 '}';
     }
 
-    public Feedback(long id, String text, boolean anonymity, String technical_skills, String soft_skills, String communication_skills, String average) {
-        this.id = id;
+    public Feedback( String text, boolean anonymity, String technical_skills, String soft_skills, String communication_skills, String average) {
         this.text = text;
         this.anonymity = anonymity;
         this.technical_skills = technical_skills;

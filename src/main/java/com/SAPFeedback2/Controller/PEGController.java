@@ -5,10 +5,7 @@ import com.SAPFeedback2.Model.PEG;
 import com.SAPFeedback2.Service.FeedbackService;
 import com.SAPFeedback2.Service.PEGService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,8 +24,8 @@ public class PEGController {
         return pegService.getAll();
     }
 
-    @GetMapping("api/peg/getAllFromEmployeeWithId")
-    public List<PEG> getAllFromEmployeeWithId(@RequestParam("personalNumber") Long personalNumber) {
+    @GetMapping("api/peg/getAllFromEmployeeWithId/{personalNumber}")
+    public List<PEG> getAllFromEmployeeWithId(@PathVariable("personalNumber") Long personalNumber) {
         return pegService.getAllFromEmployeeWithPersonalNumber(personalNumber);
     }
 
