@@ -5,10 +5,7 @@ import com.SAPFeedback2.Model.PEG;
 import com.SAPFeedback2.Service.FeedbackService;
 import com.SAPFeedback2.Service.PEGService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +32,11 @@ public class PEGController {
     @GetMapping("api/peg/getAllWithStatus")
     public List<PEG> getAllWithStatus(@RequestParam("status") Integer status) {
         return pegService.getAllWithStatus(status);
+    }
+
+    @PostMapping("api/peg/addPeg")
+    public void addPeg(@RequestBody PEG peg) {
+        System.out.println(peg);
+        pegService.addPeg(peg);
     }
 }
